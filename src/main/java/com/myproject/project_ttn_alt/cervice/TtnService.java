@@ -4,11 +4,13 @@ import com.myproject.project_ttn_alt.entityTtn.EntityTtn;
 import com.myproject.project_ttn_alt.repository.TtnInRepository;
 import com.myproject.project_ttn_alt.validation.TtnValidationService;
 
-import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TtnService {
     private TtnInRepository repository = new TtnInRepository();
     private TtnValidationService ttnValidationService = new TtnValidationService();
+    private OrderTtnService orderTtnService = new OrderTtnService();
 
     public Integer createTtn(EntityTtn entityTtn){
         ttnValidationService.validate(entityTtn);
@@ -20,25 +22,22 @@ public class TtnService {
         return repository.findEntityTtnId(id);
     }
 
-    public EntityTtn findTtnName(String name){
-        return repository.findEntityTtnId(repository.findKeyName(name));
+    public EntityTtn findTtnByName(String name){
+        return repository.findEntityTtnId(repository.getIdByName(name));
     }
 
-    public void findAllSizeTtn(){
+    public List<EntityTtn> findAllTtn(){
+        List<EntityTtn> list = new LinkedList<>();
         int sizeTtn = repository.getEntityTtnMapSize();
         for (int i = 0; i < sizeTtn; i++) {
             EntityTtn entityTtn = findTtnId(i);
-            System.out.println(entityTtn);
+            list.add(entityTtn);
         }
+        return list;
     }
 
-    public void updateListOrderTtn(){
-        System.out.println("Enter name Order: ");
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-
-
-        System.out.println("updateListOrderTtn = " + name);
-
+    public EntityTtn updateListOrderTtn(EntityTtn entityTtn){
+        entityTtn.setOrder(orderTtnService.createListOrderService());
+        return entityTtn;
     }
 }

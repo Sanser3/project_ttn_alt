@@ -47,7 +47,7 @@ public class ManagerTask {
                         break;
                     case 6:
                         System.out.println("Enter 6");
-                        findAllSizeTtnManager();
+                        findAllTtnManager();
                         break;
                     case 7:
                         System.out.println("Enter 7");
@@ -83,20 +83,32 @@ public class ManagerTask {
     }
 
     private void findTtnNameManager(){
+            System.out.println("Enter name Order: ");
+            Scanner scanner = new Scanner(System.in);
+            String name = scanner.nextLine();
+
+            EntityTtn entityTtn = ttnService.findTtnByName(name);
+            if(entityTtn != null){
+                System.out.println(entityTtn);
+            }else {
+                System.out.println("there is no such customer");
+                System.out.println("create a new");
+            }
+    }
+
+    private void findAllTtnManager(){
+        for (EntityTtn entityTtn : ttnService.findAllTtn()) {
+            System.out.println(entityTtn);
+        }
+    }
+
+    private void updateTtnManager() {
         System.out.println("Enter name Order: ");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
-        EntityTtn entityTtn = ttnService.findTtnName(name);
-        System.out.println(entityTtn);
-    }
-
-    private void findAllSizeTtnManager(){
-        ttnService.findAllSizeTtn();
-    }
-
-    private void updateTtnManager() {
-        ttnService.updateListOrderTtn();
+        EntityTtn entityTtnUpdate = ttnService.findTtnByName(name);
+        System.out.println(ttnService.updateListOrderTtn(entityTtnUpdate));
     }
 
     private void deleteTtnManager() {

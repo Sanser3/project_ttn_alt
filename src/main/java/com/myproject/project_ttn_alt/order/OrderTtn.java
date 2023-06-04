@@ -5,7 +5,7 @@ import java.util.List;
 
 public class OrderTtn {
     private List<Integer> listOrderTtn = new ArrayList<>();
-    private int listOrderTtnSize = 5;
+    private int listOrderTtnSize = 3;
 
     public List<Integer> getListOrderTtn() {
         return listOrderTtn;
