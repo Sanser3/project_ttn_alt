@@ -1,14 +1,13 @@
 package com.myproject.project_ttn_alt.cervice;
 
 import com.myproject.project_ttn_alt.entityTtn.EntityTtn;
-import com.myproject.project_ttn_alt.repository.TtnInRepository;
+import com.myproject.project_ttn_alt.repository.TtnRepositoryMemory;
 import com.myproject.project_ttn_alt.validation.TtnValidationService;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class TtnService {
-    private TtnInRepository repository = new TtnInRepository();
+    private TtnRepositoryMemory repository = new TtnRepositoryMemory();
     private TtnValidationService ttnValidationService = new TtnValidationService();
     private OrderTtnService orderTtnService = new OrderTtnService();
 
@@ -23,21 +22,25 @@ public class TtnService {
     }
 
     public EntityTtn findTtnByName(String name){
-        return repository.findEntityTtnId(repository.getIdByName(name));
+        return repository.findEntityTtnId(repository.getIdEntityByName(name));
     }
 
     public List<EntityTtn> findAllTtn(){
-        List<EntityTtn> list = new LinkedList<>();
-        int sizeTtn = repository.getEntityTtnMapSize();
-        for (int i = 0; i < sizeTtn; i++) {
-            EntityTtn entityTtn = findTtnId(i);
-            list.add(entityTtn);
-        }
-        return list;
+        return repository.findAllEntityTtn();
     }
 
     public EntityTtn updateListOrderTtn(EntityTtn entityTtn){
         entityTtn.setOrder(orderTtnService.createListOrderService());
         return entityTtn;
+    }
+
+    public Integer deleteTtn(String name){
+        Integer id = repository.getIdEntityByName(name);
+        boolean boolDelete = repository.deleteEntityTtn(id);
+        if (boolDelete){
+            System.out.println("delete ttn service ok: "+id);
+            return id;
+        }
+        return null;
     }
 }

@@ -103,7 +103,7 @@ public class ManagerTask {
     }
 
     private void updateTtnManager() {
-        System.out.println("Enter name Order: ");
+        System.out.println("Enter name Order update: ");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
@@ -112,5 +112,15 @@ public class ManagerTask {
     }
 
     private void deleteTtnManager() {
+        System.out.println("Enter name Order delete: ");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+
+        Integer deleteEntityTtnId = ttnService.deleteTtn(name);
+        if (deleteEntityTtnId != null){
+            System.out.println("Delete Order by id: " + deleteEntityTtnId);
+        }else {
+            System.out.println("failed to delete the order");
+        }
     }
 }

@@ -6,12 +6,13 @@ import com.myproject.project_ttn_alt.logic.manager.ManagerTask;
 
 import java.util.Scanner;
 
-public class ExDemoTtn {
-    public static void main(String[] args) {
+public class ConsoleDemo {
 
         ManagerTask managerTask = new ManagerTask();
         DriverTask driverTask = new DriverTask();
         CustomerTask customerTask = new CustomerTask();
+
+        public void execute(){
 
         System.out.println("++++++++++MenuTask++++++++++");
         while (true) {

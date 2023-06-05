@@ -1,6 +1,7 @@
 package com.myproject.project_ttn_alt.entityTtn;
 
 import java.util.List;
+import java.util.Objects;
 
 public class EntityTtn {
     private Integer id;
@@ -29,6 +30,19 @@ public class EntityTtn {
 
     public void setOrder(List<Integer> order) {
         this.order = order;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EntityTtn entityTtn = (EntityTtn) o;
+        return Objects.equals(id, entityTtn.id) && Objects.equals(name, entityTtn.name) && Objects.equals(order, entityTtn.order);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, order);
     }
 
     @Override
