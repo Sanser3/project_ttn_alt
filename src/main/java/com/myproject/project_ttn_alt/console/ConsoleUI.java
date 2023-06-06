@@ -6,7 +6,7 @@ import com.myproject.project_ttn_alt.logic.manager.ManagerTask;
 
 import java.util.Scanner;
 
-public class ConsoleDemo {
+public class ConsoleUI {
 
         ManagerTask managerTask = new ManagerTask();
         DriverTask driverTask = new DriverTask();
@@ -14,7 +14,7 @@ public class ConsoleDemo {
 
         public void execute(){
 
-        System.out.println("++++++++++MenuTask++++++++++");
+        System.out.println("++++++++++ConsoleUI++++++++++");
         while (true) {
             Scanner scanner = new Scanner(System.in);
             try {
@@ -42,7 +42,7 @@ public class ConsoleDemo {
                         return;
                 }
             } catch (Exception e) {
-                System.out.println("Error!");
+                System.out.println("Error! ConsoleUI");
             }
 //            scanner.close();
         }

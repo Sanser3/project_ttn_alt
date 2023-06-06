@@ -1,10 +1,10 @@
 package com.myproject.project_ttn_alt;
 
-import com.myproject.project_ttn_alt.console.ConsoleDemo;
+import com.myproject.project_ttn_alt.console.ConsoleUI;
 
 public class MyProjectTtnApp {
     public static void main(String[] args) {
-        ConsoleDemo consoleDemo = new ConsoleDemo();
-        consoleDemo.execute();
+        ConsoleUI consoleUI = new ConsoleUI();
+        consoleUI.execute();
     }
 }

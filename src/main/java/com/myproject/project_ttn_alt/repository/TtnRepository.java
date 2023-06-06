@@ -13,4 +13,9 @@ public interface TtnRepository {
 
     Optional<EntityTtn> findById(Integer id);
 
+    Integer deleteById(Integer id);
+
+    Integer deleteByName(String name);
+
+    Optional<EntityTtn> findByName(String name);
 }
