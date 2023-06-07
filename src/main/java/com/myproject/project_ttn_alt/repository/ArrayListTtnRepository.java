@@ -9,7 +9,7 @@ import java.util.Optional;
 public class ArrayListTtnRepository implements TtnRepository {
 
     Integer idFirst = 0;
-    private List<EntityTtn> entityDataBase = new ArrayList<>();
+    private final List<EntityTtn> entityDataBase = new ArrayList<>();
 
     @Override
     public EntityTtn save(EntityTtn entityTtn) {
@@ -20,6 +20,7 @@ public class ArrayListTtnRepository implements TtnRepository {
             idFirst++;
             entityDataBase.add(entityTtn);
         }
+        System.out.println("entityDataBase: "+entityDataBase);
         return entityTtn;
     }
 

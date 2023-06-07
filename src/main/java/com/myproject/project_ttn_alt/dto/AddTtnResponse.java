@@ -1,4 +1,4 @@
-package dto;
+package com.myproject.project_ttn_alt.dto;
 
 import com.myproject.project_ttn_alt.core.validation.CoreError;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package com.myproject.project_ttn_alt.core.validation;
 
-import dto.AddTtnRequest;
+import com.myproject.project_ttn_alt.dto.AddTtnRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +13,6 @@ public class ValidationService {
     public ValidationService(List<ValidationRule> validationRules) {
         this.validationRules = validationRules;
     }
-
-    //    public ValidationService() {
-//        validationRules.add(new NameValidationRule());
-//    }
 
     public List<CoreError> validate(AddTtnRequest request){
         List<CoreError> errors = new ArrayList<>();
